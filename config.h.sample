@@ -1,0 +1,43 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+/* Your SSID and password to be connected to Internet. */
+const char* ssid     = "Your SSID here";
+const char* password = "Your password here";
+
+/* Digital output pin to notify update & input pin to acknowledge a notification */
+const int led = 13;
+const int ack = 14;
+
+/* Host, port number & URL for RSS.
+ * Hint: Port number is usually 80.
+ *       URL is started from '/'.
+ *       
+ *   Example: http://feedblog.ameba.jp/rss/ameblo/sizuka-ryu/rss20.xml
+ *     const char *host = "feedblog.ameba.jp";
+ *     const int port = 80;
+ *     const char *url = "/rss20.xml";
+ *     
+ *   Example: http://192.168.11.2:8000/myrss.xml
+ *     const char *host = "192.168.11.2";
+ *     const int port = 8000;
+ *     const char *url = "myrss.xml";
+ */
+ 
+const char* host = "feedblog.ameba.jp";
+const int port = 80;
+const char* url = "/rss/ameblo/sizuka-ryu/rss20.xml";
+
+//const char* host = "news.yahoo.co.jp";
+//const int port = 80;
+//const char *url = "/pickup/rss.xml";
+
+/* n_retry: When getting or parsing RSS is failed, how many times is it retry?
+ * d_retry: Delay for retry. (msec)
+ * check_interval: Interval for check RSS again.
+ */
+const int n_retry = 3;
+const int d_retry = 1000;
+const unsigned long check_interval = 900000UL; // 15 min.
+
+#endif // CONFIG_H
